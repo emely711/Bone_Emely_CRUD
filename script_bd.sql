@@ -12,7 +12,7 @@ CREATE TABLE participantes (
 );
 
 
-INSERT INTO participantes (cedula, nombre, apellido, edad, correo, estado_civil, jornada, categoria, observaciones)
+INSERT INTO participantes ( cedula, nombre, apellido, edad, correo, estado_civil, jornada, categoria, observaciones)
 VALUES
     ('1712345678', 'Carlos',   'Pérez',    22, 'carlos.perez@email.com',   'Soltero',    'Matutina',   'Junior',      'Buen tiempo en 100m'),
     ('1798765432', 'Lucía',    'Morales',  17, 'lucia.morales@email.com',  'Soltero',    'Vespertina', 'Infantil',    'Participante nueva'),
