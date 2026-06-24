@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.natacion.controller.CrudController"
+            style="-fx-background-color: #1a1a2e;">
+
+    <!-- ── TÍTULO ── -->
+    <top>
+        <Label text="🏊 Registro de Participantes de Natación"
+               style="-fx-font-size: 18px; -fx-font-weight: bold;
+                      -fx-text-fill: #e0e0e0; -fx-padding: 16 20;">
+        </Label>
+    </top>
+
+    <!-- ── FORMULARIO ── -->
+    <left>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background: #16213e; -fx-background-color: #16213e;">
+            <GridPane hgap="10" vgap="10"
+                      style="-fx-padding: 20; -fx-background-color: #16213e;">
+
+                <!-- Cédula -->
+                <Label text="Cédula:" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <TextField fx:id="txtCedula" promptText="10 dígitos"
+                           prefWidth="220"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"
+                           style="-fx-background-color: #0f3460; -fx-text-fill: white;
+                                  -fx-background-radius:5; -fx-padding:7;"/>
+
+                <!-- Nombre -->
+                <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <TextField fx:id="txtNombre" promptText="Nombre"
+                           prefWidth="220"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"
+                           style="-fx-background-color: #0f3460; -fx-text-fill: white;
+                                  -fx-background-radius:5; -fx-padding:7;"/>
+
+                <!-- Apellido -->
+                <Label text="Apellido:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <TextField fx:id="txtApellido" promptText="Apellido"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"
+                           style="-fx-background-color: #0f3460; -fx-text-fill: white;
+                                  -fx-background-radius:5; -fx-padding:7;"/>
+
+                <!-- Edad -->
+                <Label text="Edad:" GridPane.rowIndex="3" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <TextField fx:id="txtEdad" promptText="Mayor a 5"
+                           GridPane.rowIndex="3" GridPane.columnIndex="1"
+                           style="-fx-background-color: #0f3460; -fx-text-fill: white;
+                                  -fx-background-radius:5; -fx-padding:7;"/>
+
+                <!-- Correo -->
+                <Label text="Correo:" GridPane.rowIndex="4" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <TextField fx:id="txtCorreo" promptText="ejemplo@mail.com"
+                           GridPane.rowIndex="4" GridPane.columnIndex="1"
+                           style="-fx-background-color: #0f3460; -fx-text-fill: white;
+                                  -fx-background-radius:5; -fx-padding:7;"/>
+
+                <!-- Estado Civil -->
+                <Label text="Estado Civil:" GridPane.rowIndex="5" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <ComboBox fx:id="cmbEstadoCivil" prefWidth="220"
+                          GridPane.rowIndex="5" GridPane.columnIndex="1"
+                          style="-fx-background-color: #0f3460; -fx-background-radius:5;"/>
+
+                <!-- Jornada (RadioButtons) -->
+                <Label text="Jornada:" GridPane.rowIndex="6" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <HBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1">
+                    <RadioButton fx:id="rbMatutina"  text="Matutina"
+                                 style="-fx-text-fill: #c0c0d0;"/>
+                    <RadioButton fx:id="rbVespertina" text="Vespertina"
+                                 style="-fx-text-fill: #c0c0d0;"/>
+                    <RadioButton fx:id="rbNocturna"  text="Nocturna"
+                                 style="-fx-text-fill: #c0c0d0;"/>
+                </HBox>
+
+                <!-- Categoría -->
+                <Label text="Categoría:" GridPane.rowIndex="7" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <ComboBox fx:id="cmbCategoria" prefWidth="220"
+                          GridPane.rowIndex="7" GridPane.columnIndex="1"
+                          style="-fx-background-color: #0f3460; -fx-background-radius:5;"/>
+
+                <!-- Observaciones -->
+                <Label text="Observaciones:" GridPane.rowIndex="8" GridPane.columnIndex="0"
+                       style="-fx-text-fill: #c0c0d0;"/>
+                <TextArea fx:id="txtObservaciones" prefHeight="70" prefWidth="220"
+                          GridPane.rowIndex="8" GridPane.columnIndex="1"
+                          style="-fx-background-color: #0f3460; -fx-text-fill: white;
+                                 -fx-background-radius:5; -fx-control-inner-background:#0f3460;"/>
+
+                <!-- Botones CRUD -->
+                <HBox spacing="8" GridPane.rowIndex="9" GridPane.columnIndex="0"
+                      GridPane.columnSpan="2" alignment="CENTER">
+                    <Button text="➕ Guardar"  onAction="#guardar"
+                            style="-fx-background-color:#4a4af0; -fx-text-fill:white;
+                                   -fx-background-radius:5; -fx-padding:8 14; -fx-cursor:hand;"/>
+                    <Button text="✏ Actualizar" onAction="#actualizar"
+                            style="-fx-background-color:#f0a000; -fx-text-fill:white;
+                                   -fx-background-radius:5; -fx-padding:8 14; -fx-cursor:hand;"/>
+                    <Button text="🗑 Eliminar"  onAction="#eliminar"
+                            style="-fx-background-color:#e0303a; -fx-text-fill:white;
+                                   -fx-background-radius:5; -fx-padding:8 14; -fx-cursor:hand;"/>
+                    <Button text="🔄 Limpiar"  onAction="#limpiar"
+                            style="-fx-background-color:#444; -fx-text-fill:white;
+                                   -fx-background-radius:5; -fx-padding:8 14; -fx-cursor:hand;"/>
+                </HBox>
+
+            </GridPane>
+        </ScrollPane>
+    </left>
+
+    <!-- ── TABLA ── -->
+    <center>
+        <TableView fx:id="tablaParticipantes"
+                   style="-fx-background-color: #0f3460; -fx-border-color: #3a3a6a;"
+                   BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colId"          text="ID"           prefWidth="45"/>
+                <TableColumn fx:id="colCedula"      text="Cédula"       prefWidth="100"/>
+                <TableColumn fx:id="colNombre"      text="Nombre"       prefWidth="110"/>
+                <TableColumn fx:id="colApellido"    text="Apellido"     prefWidth="110"/>
+                <TableColumn fx:id="colEdad"        text="Edad"         prefWidth="55"/>
+                <TableColumn fx:id="colCorreo"      text="Correo"       prefWidth="170"/>
+                <TableColumn fx:id="colEstadoCivil" text="Estado Civil" prefWidth="110"/>
+                <TableColumn fx:id="colJornada"     text="Jornada"      prefWidth="95"/>
+                <TableColumn fx:id="colCategoria"   text="Categoría"    prefWidth="90"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
